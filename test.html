@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Simple Modern Page — Template</title>
+    <meta
+      name="description"
+      content="A clean, responsive single-file HTML template with accessible navigation, hero, features, and contact form."
+    />
+    <!-- Basic styles (mobile-first) -->
+  </head>
+  <body>
+    <div class="wrap" id="page">
+      <header>
+        <a class="brand" href="#" aria-label="Homepage">
+          <div class="logo" aria-hidden="true">SM</div>
+          <div>
+            <div style="font-weight: 800">Simple Modern</div>
+            <div class="tiny muted">Template • Single file</div>
+          </div>
+        </a>
+
+        <div style="display: flex; align-items: center; gap: 8px">
+          <nav aria-label="Primary navigation">
+            <a class="nav-link" href="#features">Features</a>
+            <a class="nav-link" href="#pricing">Pricing</a>
+            <a class="nav-link" href="#contact">Contact</a>
+          </nav>
+
+          <button
+            class="mobile-toggle ghost"
+            id="mobileToggle"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <span class="sr-only">Toggle menu</span>
+            ☰
+          </button>
+
+          <button
+            id="themeToggle"
+            class="ghost"
+            aria-label="Toggle color theme"
+          >
+            🌓
+          </button>
+        </div>
+      </header>
+
+      <div id="mobileMenu" class="mobile-menu" role="region" aria-hidden="true">
+        <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#pricing">Pricing</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div>
+            <article
+              class="hero-card"
+              role="article"
+              aria-labelledby="hero-title"
+            >
+              <p class="pill tiny">New • 2025</p>
+              <h1 id="hero-title">
+                Beautiful, minimal, and practical HTML starter
+              </h1>
+              <p class="lead">
+                A single-file template with responsive layout, accessible
+                components, and a small JS layer for interactions. Easily adapt
+                for a landing page, product site or portfolio.
+              </p>
+
+              <div class="cta-row" role="group" aria-label="Primary actions">
+                <a class="btn" href="#contact">Get in touch</a>
+                <a class="ghost nav-link" href="#features">Explore features</a>
+              </div>
+
+              <div class="features" aria-hidden="true">
+                <div class="feature">
+                  <h3>Accessible</h3>
+                  <div class="tiny muted">
+                    Semantic markup, keyboard-friendly controls, aria labels.
+                  </div>
+                </div>
+                <div class="feature">
+                  <h3>Responsive</h3>
+                  <div class="tiny muted">
+                    Mobile-first grid, fluid typography.
+                  </div>
+                </div>
+                <div class="feature">
+                  <h3>Customisable</h3>
+                  <div class="tiny muted">
+                    Change colors in :root or toggle theme with JS.
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <aside
+            class="hero-card"
+            aria-labelledby="quick-stats"
+            role="complementary"
+          >
+            <h2 id="quick-stats" style="margin-top: 0">Quick preview</h2>
+            <p class="muted tiny">
+              A few example stats and a contact form to demo UI components.
+            </p>
+
+            <dl
+              style="display: flex; gap: 12px; margin: 16px 0; flex-wrap: wrap"
+            >
+              <div
+                style="
+                  background: var(--glass);
+                  padding: 10px;
+                  border-radius: 10px;
+                  min-width: 120px;
+                "
+              >
+                <dt class="tiny muted">Projects</dt>
+                <dd style="font-weight: 800; font-size: 1.2rem; margin: 6px 0">
+                  12
+                </dd>
+              </div>
+              <div
+                style="
+                  background: var(--glass);
+                  padding: 10px;
+                  border-radius: 10px;
+                  min-width: 120px;
+                "
+              >
+                <dt class="tiny muted">Happy clients</dt>
+                <dd style="font-weight: 800; font-size: 1.2rem; margin: 6px 0">
+                  8
+                </dd>
+              </div>
+            </dl>
+
+            <form
+              id="contact"
+              aria-labelledby="contact-heading"
+              class="tiny"
+              onsubmit="submitForm(event)"
+            >
+              <h3 id="contact-heading">Contact</h3>
+              <label for="name">Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Your name"
+                required
+              />
+
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
+
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Hi — tell me about the project..."
+                required
+              ></textarea>
+
+              <div class="row">
+                <button type="submit" class="btn">Send message</button>
+                <button type="reset" class="ghost">Reset</button>
+              </div>
+
+              <div
+                id="formStatus"
+                class="muted tiny"
+                role="status"
+                aria-live="polite"
+                style="margin-top: 8px"
+              ></div>
+            </form>
+          </aside>
+        </section>
+
+        <section id="features" style="margin-top: 12px">
+          <div class="hero-card">
+            <h2 style="margin-top: 0">Features</h2>
+            <p class="muted">What you get out of the box.</p>
+
+            <ul style="margin-top: 12px; line-height: 1.6">
+              <li>
+                <strong>Single-file:</strong> HTML, CSS and JS combined for
+                quick prototyping.
+              </li>
+              <li>
+                <strong>Theme toggle:</strong> Light/dark support using
+                data-theme on the document element.
+              </li>
+              <li>
+                <strong>Accessible forms & nav:</strong> aria attributes and
+                visible focus styles (use your browser dev tools to inspect).
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="pricing" style="margin-top: 12px">
+          <div class="hero-card">
+            <h2 style="margin-top: 0">Pricing (example)</h2>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 12px;
+                margin-top: 12px;
+              "
+            >
+              <div
+                style="
+                  background: var(--glass);
+                  padding: 16px;
+                  border-radius: 12px;
+                "
+              >
+                <h3 style="margin: 0 0 6px">Starter</h3>
+                <div class="muted tiny">Free • Basic template</div>
+                <div style="margin-top: 10px; font-weight: 800">€0</div>
+              </div>
+              <div
+                style="
+                  background: var(--glass);
+                  padding: 16px;
+                  border-radius: 12px;
+                "
+              >
+                <h3 style="margin: 0 0 6px">Pro</h3>
+                <div class="muted tiny">Customisation & support</div>
+                <div style="margin-top: 10px; font-weight: 800">€49</div>
+              </div>
+              <div
+                style="
+                  background: var(--glass);
+                  padding: 16px;
+                  border-radius: 12px;
+                "
+              >
+                <h3 style="margin: 0 0 6px">Agency</h3>
+                <div class="muted tiny">Team & integrations</div>
+                <div style="margin-top: 10px; font-weight: 800">€199</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+          "
+        >
+          <div class="muted tiny">
+            © <span id="year"></span> Simple Modern — Built with ❤️
+          </div>
+          <div class="muted tiny">Made for demo • Accessible • Responsive</div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
